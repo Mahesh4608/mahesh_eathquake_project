@@ -1,0 +1,24 @@
+# The main pipeline for mahesh_project_bundle
+
+resources:
+  pipelines:
+    bronze_silver_earthquake_etl:
+      name: Bronze_Silver_Layer
+      configuration:
+        catalog_name: ${var.catalog}
+      libraries:
+        - glob:
+            include: /Workspace/mahesh_eathquake_project/mahesh_eathquake_project/mahesh_project_bundle/src/DLT_pipeline/Bronze_silver/transformations/**
+      schema: silver
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: ${var.catalog}
+      serverless: true
+      root_path: /Workspace/mahesh_eathquake_project/mahesh_eathquake_project/mahesh_project_bundle/src/DLT_pipeline/Bronze_silver
+
+
+
+
+
